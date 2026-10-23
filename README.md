@@ -38,6 +38,11 @@ Experimento de investigación en **Unity** con tres condiciones: sin asistencia,
 - Demos en video: [sin asistencia](https://youtu.be/upMpOpCAWgQ) · [solo chat](https://youtu.be/U_A_y0d-Hxg) · [avatar y voz](https://youtu.be/_h3h9BOnI18)
 - `Unity` · `C#` · `Gemini API` · `Azure Speech` · `Python` (análisis)
 
+#### ✅ [Avanxa: app full-stack de hábitos](https://github.com/jmnzcn/avanxa) · [🚀 demo en vivo](https://avanxa.onrender.com)
+App para registrar hábitos diarios, semanales o mensuales, con rachas, estadísticas y un panel de administración. La llevé de prototipo a app integrada: corregí el contrato roto entre frontend y backend, conecté el panel a datos reales y cerré un hueco de seguridad que encontraron los tests.
+- **70 tests** (API con Supertest, servicios del frontend y end-to-end con Playwright) y CI en GitHub Actions; desplegada en Render como un solo servicio con PostgreSQL.
+- `TypeScript` · `React` · `Express` · `Prisma` · `PostgreSQL` · `Playwright` · `GitHub Actions`
+
 ### Stack
 
 **IA y LLMs:** OpenAI · Anthropic · Gemini · Ollama · RAG · MCP · STT/TTS  
@@ -73,6 +78,11 @@ Flight booking system with **3 Flask microservices** (flights, bookings, user fa
 A **Unity** research experiment with three conditions: no assistance, **Gemini** chat, and a 3D avatar with **Azure TTS** voice and lip sync. It logs each participant's performance and trust (1–7 scale) to study how the agent's presence changes user trust.
 - Video demos: [no assistance](https://youtu.be/upMpOpCAWgQ) · [chat only](https://youtu.be/U_A_y0d-Hxg) · [avatar + voice](https://youtu.be/_h3h9BOnI18)
 - `Unity` · `C#` · `Gemini API` · `Azure Speech` · `Python` (analysis)
+
+#### ✅ [Avanxa: full-stack habit tracker](https://github.com/jmnzcn/avanxa) · [🚀 live demo](https://avanxa.onrender.com)
+Track daily, weekly or monthly habits with streaks, stats and an admin panel. I took it from prototype to integrated app: fixed the broken frontend/backend contract, wired the dashboard to real data, and closed a security gap the tests uncovered.
+- **70 tests** (Supertest API tests, frontend service tests and Playwright end-to-end) with GitHub Actions CI; deployed on Render as a single service with PostgreSQL.
+- `TypeScript` · `React` · `Express` · `Prisma` · `PostgreSQL` · `Playwright` · `GitHub Actions`
 
 ### Stack
 
