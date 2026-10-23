@@ -27,6 +27,11 @@ Comparé **15 servicios** de STT, LLM y TTS (OpenAI, Anthropic, Gemini, Groq, De
 - Datos crudos, audios de prueba con hash SHA-256 y scripts para regenerar tablas y gráficos sin volver a gastar créditos.
 - `Python` · `Ollama` · `faster-whisper` · `Piper` · `pandas` · `pytest`
 
+#### 🇨🇷 [mcp-hacienda-cr: servidor MCP de Hacienda para facturación electrónica](https://github.com/jmnzcn/mcp-hacienda-cr)
+Conecta a Claude, Cursor y otros asistentes con las APIs públicas del Ministerio de Hacienda: tipo de cambio, situación tributaria de contribuyentes (moroso u omiso), códigos **CABYS con su IVA** y exoneraciones. Por ejemplo, le puedes preguntar *"¿qué CABYS e IVA lleva el café tostado?"* o *"¿esta empresa está al día con Hacienda?"*.
+- 25 tests unitarios, tests de contrato contra la API real y CI en Node 18/20/22 con una corrida semanal en vivo.
+- `TypeScript` · `MCP SDK` · `Zod` · `Vitest` · `GitHub Actions`
+
 #### 🧪 [FlightBooking QA Copilot: microservicios + servidor MCP](https://github.com/jmnzcn/flightbooking-qa-copilot-mcp)
 Sistema de reservas de vuelos con **3 microservicios Flask** (vuelos, reservas, usuario) documentados con Swagger/OpenAPI, y una suite de **pruebas automatizadas de API** que incluye casos generados con un enfoque **RAG** (ChromaDB).
 - Un **servidor MCP** que funciona como "QA Copilot": revisa la salud de los servicios, invoca endpoints, ejecuta suites de `pytest` y lee código y documentación del repo.
@@ -67,6 +72,11 @@ I build and evaluate **AI conversational agents**: from choosing the right speec
 Benchmarked **15 STT, LLM and TTS services** (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) against **fully local** alternatives (Ollama, faster-whisper, Piper). Measured latency, accuracy (WER, MOS), cost, privacy, customization and integration effort, plus the full **STT → LLM → TTS** pipeline across four stacks.
 - Raw data, SHA-256-verified test audio and scripts to rebuild every table and chart without spending API credits.
 - `Python` · `Ollama` · `faster-whisper` · `Piper` · `pandas` · `pytest`
+
+#### 🇨🇷 [mcp-hacienda-cr: Costa Rica Ministry of Finance MCP server for e-invoicing](https://github.com/jmnzcn/mcp-hacienda-cr)
+Connects Claude, Cursor and other assistants to Costa Rica's Ministry of Finance public APIs: exchange rates, taxpayer status, **CABYS product codes with their VAT rate**, and tax exemptions.
+- 25 unit tests, live contract tests against the real API, and CI on Node 18/20/22 with a weekly live run.
+- `TypeScript` · `MCP SDK` · `Zod` · `Vitest` · `GitHub Actions`
 
 #### 🧪 [FlightBooking QA Copilot: microservices + MCP server](https://github.com/jmnzcn/flightbooking-qa-copilot-mcp)
 Flight booking system with **3 Flask microservices** (flights, bookings, user facade) documented with Swagger/OpenAPI, plus an **automated API test suite** that includes **RAG-generated** test cases (ChromaDB).
