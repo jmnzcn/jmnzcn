@@ -22,7 +22,7 @@ Construyo y evalúo **agentes conversacionales con IA**: desde elegir qué model
 
 ### Proyectos destacados
 
-#### 🎙️ [Benchmark de servicios de voz para agentes conversacionales](https://github.com/jmnzcn/voice-agent-benchmark)
+#### 🎙️ [Benchmark de servicios de voz para agentes conversacionales](https://github.com/jmnzcn/voice-agent-benchmark) · [📊 resultados interactivos](https://jmnzcn.github.io/voice-agent-benchmark/)
 Comparé **15 servicios** de STT, LLM y TTS (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) contra alternativas **100 % locales** (Ollama, faster-whisper, Piper). Medí latencia, precisión (WER, MOS), costo, privacidad, customización e integración, y el flujo completo **STT → LLM → TTS** en cuatro stacks.
 - Datos crudos, audios de prueba con hash SHA-256 y scripts para regenerar tablas y gráficos sin volver a gastar créditos.
 - `Python` · `Ollama` · `faster-whisper` · `Piper` · `pandas` · `pytest`
@@ -68,7 +68,7 @@ I build and evaluate **AI conversational agents**: from choosing the right speec
 
 ### Featured projects
 
-#### 🎙️ [Speech services benchmark for conversational agents](https://github.com/jmnzcn/voice-agent-benchmark)
+#### 🎙️ [Speech services benchmark for conversational agents](https://github.com/jmnzcn/voice-agent-benchmark) · [📊 interactive results](https://jmnzcn.github.io/voice-agent-benchmark/)
 Benchmarked **15 STT, LLM and TTS services** (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) against **fully local** alternatives (Ollama, faster-whisper, Piper). Measured latency, accuracy (WER, MOS), cost, privacy, customization and integration effort, plus the full **STT → LLM → TTS** pipeline across four stacks.
 - Raw data, SHA-256-verified test audio and scripts to rebuild every table and chart without spending API credits.
 - `Python` · `Ollama` · `faster-whisper` · `Piper` · `pandas` · `pytest`
