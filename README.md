@@ -32,6 +32,11 @@ Versión streaming del motor anterior sobre **Kafka 4.1 + Kafka Streams** (exact
 - 8 ADRs (Kafka Streams vs Flink vs Spark, tiempo de negocio vs tiempo de Kafka, correcciones en un tópico compactado), diagramas C4, runbook, resumen ejecutivo y Terraform para Confluent Cloud con RBAC de mínimo privilegio.
 - `Java 21` · `Kafka Streams` · `Avro` · `Schema Registry` · `Docker` · `Terraform` · `GitHub Actions`
 
+#### 🕵️ [Dispute Agent: un agente de IA que investiga y disputa deducciones](https://github.com/jmnzcn/dispute-agent) · [📊 evals interactivos](https://jmnzcn.github.io/dispute-agent/)
+Agente con **Claude** que investiga cada deducción como un analista: usa herramientas de solo lectura (también expuestas como **servidor MCP**) para encontrar la factura detrás de una referencia ambigua, revisar envíos y pruebas de entrega, y redactar la carta de disputa. Guardrails deterministas deciden qué se presenta. Medido contra respuestas conocidas: **100 % de decisiones exactas con Opus 5.5 y 99,1 % con Haiku 5.5** (a $0,0009 por caso), **0 disputas falsas** y 20 de 20 intentos de *prompt injection* resistidos.
+- Evals con verdad conocida, una suite de inyección, cada traza navegable y una mejora documentada: el primer eval detectó una ambigüedad en el procedimiento (67 % → 99,1 %).
+- `Python` · `Claude API` · `MCP` · `tool use` · `evals` · `guardrails` · `GitHub Actions`
+
 #### 🎙️ [Benchmark de servicios de voz para agentes conversacionales](https://github.com/jmnzcn/voice-agent-benchmark) · [📊 resultados interactivos](https://jmnzcn.github.io/voice-agent-benchmark/)
 Comparé **15 servicios** de STT, LLM y TTS (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) contra alternativas **100 % locales** (Ollama, faster-whisper, Piper). Medí latencia, precisión (WER, MOS), costo, privacidad, customización e integración, y el flujo completo **STT → LLM → TTS** en cuatro stacks.
 - Datos crudos, audios de prueba con hash SHA-256 y scripts para regenerar tablas y gráficos sin volver a gastar créditos.
@@ -87,6 +92,11 @@ Reconciles Amazon Vendor Central deductions (shortages, price claims, chargeback
 The streaming version of the engine above, on **Kafka 4.1 + Kafka Streams** (exactly-once v2, 3 brokers, Avro contracts in Schema Registry). It judges each deduction as soon as its evidence arrives and corrects itself when late evidence changes a verdict. In a chaos test on **464,512 events** (half out of order), killing a broker and then the app with its state wiped, it produced **19,283 of 19,283 verdicts identical** to the batch engine, with zero duplicates.
 - 8 ADRs (Kafka Streams vs Flink vs Spark, business time vs Kafka time, corrections on a compacted topic), C4 diagrams, a runbook, an executive brief and Terraform for Confluent Cloud with least-privilege RBAC.
 - `Java 21` · `Kafka Streams` · `Avro` · `Schema Registry` · `Docker` · `Terraform` · `GitHub Actions`
+
+#### 🕵️ [Dispute Agent: an AI agent that investigates and disputes deductions](https://github.com/jmnzcn/dispute-agent) · [📊 interactive evals](https://jmnzcn.github.io/dispute-agent/)
+A **Claude** agent that works each deduction like an analyst: read-only tools (also served as an **MCP server**) to find the invoice behind a messy reference, check shipments and proofs of delivery, and draft the dispute letter. Deterministic guardrails decide what gets filed. Measured against known answers: **100 % exact decisions with Opus 5.5 and 99.1 % with Haiku 5.5** (at $0.0009 per case), **zero false disputes**, and 20 of 20 prompt-injection attempts resisted.
+- Evals with ground truth, an injection suite, every trace browsable, and a documented fix: the first eval caught an ambiguity in the procedure (67 % → 99.1 %).
+- `Python` · `Claude API` · `MCP` · `tool use` · `evals` · `guardrails` · `GitHub Actions`
 
 #### 🎙️ [Speech services benchmark for conversational agents](https://github.com/jmnzcn/voice-agent-benchmark) · [📊 interactive results](https://jmnzcn.github.io/voice-agent-benchmark/)
 Benchmarked **15 STT, LLM and TTS services** (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) against **fully local** alternatives (Ollama, faster-whisper, Piper). Measured latency, accuracy (WER, MOS), cost, privacy, customization and integration effort, plus the full **STT → LLM → TTS** pipeline across four stacks.
