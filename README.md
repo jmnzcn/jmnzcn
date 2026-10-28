@@ -37,6 +37,11 @@ Agente con **Claude** que investiga cada deducción como un analista: usa herram
 - Evals con verdad conocida, una suite de inyección, cada traza navegable y una mejora documentada: el primer eval detectó una ambigüedad en el procedimiento (67 % → 99,1 %).
 - `Python` · `Claude API` · `MCP` · `tool use` · `evals` · `guardrails` · `GitHub Actions`
 
+#### 📈 [Recovery BI: un reporte de Power BI generado como código](https://github.com/jmnzcn/recovery-bi)
+El reporte que leería finanzas, escrito entero desde Python: el modelo semántico en **TMDL** y las páginas y visuales en **PBIR** (formato de proyecto .pbip), sobre las 111.224 decisiones del motor. Cada medida **DAX** tiene una implementación independiente en pandas y se compara celda por celda contra el motor de **Power BI Desktop**: **17.885 celdas, 0 diferencias**. La primera corrida encontró un error real (una tasa que daba vacío en vez de 0 %).
+- CI valida cada archivo contra los esquemas oficiales de Microsoft y el modelo con su Tabular Object Model; el build es determinista, así que cada cambio al reporte se revisa como un diff.
+- `Power BI` · `DAX` · `TMDL` · `PBIR` · `Python` · `.NET (TOM, ADOMD)` · `GitHub Actions`
+
 #### 🎙️ [Benchmark de servicios de voz para agentes conversacionales](https://github.com/jmnzcn/voice-agent-benchmark) · [📊 resultados interactivos](https://jmnzcn.github.io/voice-agent-benchmark/)
 Comparé **15 servicios** de STT, LLM y TTS (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) contra alternativas **100 % locales** (Ollama, faster-whisper, Piper). Medí latencia, precisión (WER, MOS), costo, privacidad, customización e integración, y el flujo completo **STT → LLM → TTS** en cuatro stacks.
 - Datos crudos, audios de prueba con hash SHA-256 y scripts para regenerar tablas y gráficos sin volver a gastar créditos.
@@ -67,6 +72,7 @@ App para registrar hábitos diarios, semanales o mensuales, con rachas, estadís
 
 **IA y LLMs:** OpenAI · Anthropic · Gemini · Ollama · RAG · MCP · STT/TTS  
 **Backend:** Python · Flask · Node.js · Express · Prisma · PostgreSQL  
+**Datos y BI:** SQL · Power BI · DAX · pandas · Kafka Streams  
 **Frontend:** React · Vite · TypeScript · Tailwind CSS  
 **Calidad y DevOps:** pytest · GitHub Actions · Docker  
 **Otros:** Unity · C#
@@ -98,6 +104,11 @@ A **Claude** agent that works each deduction like an analyst: read-only tools (a
 - Evals with ground truth, an injection suite, every trace browsable, and a documented fix: the first eval caught an ambiguity in the procedure (67 % → 99.1 %).
 - `Python` · `Claude API` · `MCP` · `tool use` · `evals` · `guardrails` · `GitHub Actions`
 
+#### 📈 [Recovery BI: a Power BI report generated as code](https://github.com/jmnzcn/recovery-bi)
+The report finance would read, written entirely from Python: the semantic model in **TMDL** and the pages and visuals in **PBIR** (the .pbip project format), over the engine's 111,224 decisions. Every **DAX** measure has an independent pandas implementation and is compared cell by cell on **Power BI Desktop's** own engine: **17,885 cells, zero mismatches**. The first run caught a real bug (a rate showing blank instead of 0 %).
+- CI validates every file against Microsoft's published schemas and the model with its Tabular Object Model; the build is deterministic, so every change to the report is reviewed as a diff.
+- `Power BI` · `DAX` · `TMDL` · `PBIR` · `Python` · `.NET (TOM, ADOMD)` · `GitHub Actions`
+
 #### 🎙️ [Speech services benchmark for conversational agents](https://github.com/jmnzcn/voice-agent-benchmark) · [📊 interactive results](https://jmnzcn.github.io/voice-agent-benchmark/)
 Benchmarked **15 STT, LLM and TTS services** (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) against **fully local** alternatives (Ollama, faster-whisper, Piper). Measured latency, accuracy (WER, MOS), cost, privacy, customization and integration effort, plus the full **STT → LLM → TTS** pipeline across four stacks.
 - Raw data, SHA-256-verified test audio and scripts to rebuild every table and chart without spending API credits.
@@ -128,6 +139,7 @@ Track daily, weekly or monthly habits with streaks, stats and an admin panel. I 
 
 **AI & LLMs:** OpenAI · Anthropic · Gemini · Ollama · RAG · MCP · STT/TTS  
 **Backend:** Python · Flask · Node.js · Express · Prisma · PostgreSQL  
+**Data & BI:** SQL · Power BI · DAX · pandas · Kafka Streams  
 **Frontend:** React · Vite · TypeScript · Tailwind CSS  
 **Quality & DevOps:** pytest · GitHub Actions · Docker  
 **Other:** Unity · C#
