@@ -2,148 +2,85 @@
 
 # Ney Fred Jiménez Campos
 
-**Ingeniero de software · Agentes de IA · Evaluación de LLMs · QA automatizado**<br>
-*Software engineer · AI agents · LLM evaluation · Test automation*
+**AI agents · LLM evaluation · Analytics engineering · Test automation**
 
-📍 Cartago, Costa Rica · 🎓 Posgrado en Computación e Informática, UCR
+I build AI agents and data systems, and I check that they're right: every project below is tested
+against known answers.
+
+📍 Cartago, Costa Rica · 🎓 Graduate studies in Computer Science, University of Costa Rica
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-neyfred-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/neyfred/)
 [![Email](https://img.shields.io/badge/Email-neyfred%40gmail.com-D14836?logo=gmail&logoColor=white)](mailto:neyfred@gmail.com)
-
-[Español](#-español) · [English](#-english)
 
 </div>
 
 ---
 
-## 🇨🇷 Español
+### 🔬 [MetricBench](https://github.com/jmnzcn/metricbench) · [results](https://jmnzcn.github.io/metricbench/)
+Can AI agents answer business questions about real data correctly? On raw SQL, four models got
+**23–47%** right. With a one-page metric glossary, **92–100%**. Through a dbt + MetricFlow semantic
+layer, **98–100%** of what it covers, and "I can't answer that" for the rest, never a made-up number.
+78 questions with known answers, 100k real orders.<br>
+`dbt` · `MetricFlow` · `DuckDB` · `Claude` · `Gemini`
 
-Construyo y evalúo **agentes conversacionales con IA**: desde elegir qué modelo de voz o LLM conviene según latencia, costo y privacidad, hasta probar que el sistema completo funcione y medir cómo lo perciben las personas que lo usan.
+### 🧪 [dax-parity](https://github.com/jmnzcn/dax-parity) · [![PyPI](https://img.shields.io/pypi/v/dax-parity?label=PyPI)](https://pypi.org/project/dax-parity/)
+Tests every DAX measure in a Power BI model against an independent SQL implementation, cell by cell,
+on Power BI's own engine: 18,159 cells in about 30 seconds. Claude can draft the reference without
+seeing the DAX, and mutation testing shows which bugs your checks would miss.<br>
+`Power BI` · `DAX` · `DuckDB` · `.NET` · `Python`
 
-### Proyectos destacados
-
-#### 📦 [Vendor Recovery Engine: conciliación de deducciones de Amazon](https://github.com/jmnzcn/vendor-recovery-engine) · [📊 resultados interactivos](https://jmnzcn.github.io/vendor-recovery-engine/)
-Concilia las deducciones de Amazon Vendor Central (faltantes, reclamos de precio, chargebacks) y los pagos contra los registros del vendor: decide qué se puede disputar, con qué evidencia y qué fila de qué archivo lo prueba, y arma la cola de trabajo por plazo y valor esperado. Sobre **2,7 millones de filas** de 170 vendors (mundo sintético construido con datos reales de UCI y del BCE) encontró **$895.010 recuperables**, con **0 reclamos falsos** frente a la verdad conocida.
-- Curva de robustez contra lo que *realmente* pasó: la precisión se mantiene en 100 % aunque falte evidencia. Pipeline de cartas de disputa con **Claude** y un verificador determinista que exige que cada monto, ID y fecha salga de la evidencia (atrapó 975 de 975 errores inyectados).
-- `Python` · `pandas` · `pandera` · `pytest` · `hypothesis` · `Claude API` · `GitHub Actions`
-
-#### ⚡ [Deduction Stream: la misma conciliación, en tiempo real con Kafka](https://github.com/jmnzcn/deduction-stream)
-Versión streaming del motor anterior sobre **Kafka 4.1 + Kafka Streams** (exactly-once v2, 3 brokers, contratos Avro en Schema Registry). Juzga cada deducción en cuanto llega su evidencia y se corrige sola cuando llega evidencia tardía. En una prueba de caos con **464.512 eventos** (mitad fuera de orden), matando un broker y la app con su estado borrado, dio **19.283 de 19.283 veredictos idénticos** al motor batch, sin un solo duplicado.
-- 8 ADRs (Kafka Streams vs Flink vs Spark, tiempo de negocio vs tiempo de Kafka, correcciones en un tópico compactado), diagramas C4, runbook, resumen ejecutivo y Terraform para Confluent Cloud con RBAC de mínimo privilegio.
-- `Java 21` · `Kafka Streams` · `Avro` · `Schema Registry` · `Docker` · `Terraform` · `GitHub Actions`
-
-#### 🕵️ [Dispute Agent: un agente de IA que investiga y disputa deducciones](https://github.com/jmnzcn/dispute-agent) · [📊 evals interactivos](https://jmnzcn.github.io/dispute-agent/)
-Agente con **Claude** que investiga cada deducción como un analista: usa herramientas de solo lectura (también expuestas como **servidor MCP**) para encontrar la factura detrás de una referencia ambigua, revisar envíos y pruebas de entrega, y redactar la carta de disputa. Guardrails deterministas deciden qué se presenta. Medido contra respuestas conocidas: **100 % de decisiones exactas con Opus 5.5 y 99,1 % con Haiku 5.5** (a $0,0009 por caso), **0 disputas falsas** y 20 de 20 intentos de *prompt injection* resistidos.
-- Evals con verdad conocida, una suite de inyección, cada traza navegable y una mejora documentada: el primer eval detectó una ambigüedad en el procedimiento (67 % → 99,1 %).
-- `Python` · `Claude API` · `MCP` · `tool use` · `evals` · `guardrails` · `GitHub Actions`
-
-#### 📈 [Recovery BI: un reporte de Power BI generado como código](https://github.com/jmnzcn/recovery-bi)
-El reporte que leería finanzas, escrito entero desde Python: el modelo semántico en **TMDL** y las páginas y visuales en **PBIR** (formato de proyecto .pbip), sobre las 111.224 decisiones del motor. Cada medida **DAX** tiene una implementación independiente en pandas y se compara celda por celda contra el motor de **Power BI Desktop**: **17.885 celdas, 0 diferencias**. La primera corrida encontró un error real (una tasa que daba vacío en vez de 0 %).
-- CI valida cada archivo contra los esquemas oficiales de Microsoft y el modelo con su Tabular Object Model; el build es determinista, así que cada cambio al reporte se revisa como un diff.
-- `Power BI` · `DAX` · `TMDL` · `PBIR` · `Python` · `.NET (TOM, ADOMD)` · `GitHub Actions`
-
-#### 🎙️ [Benchmark de servicios de voz para agentes conversacionales](https://github.com/jmnzcn/voice-agent-benchmark) · [📊 resultados interactivos](https://jmnzcn.github.io/voice-agent-benchmark/)
-Comparé **15 servicios** de STT, LLM y TTS (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) contra alternativas **100 % locales** (Ollama, faster-whisper, Piper). Medí latencia, precisión (WER, MOS), costo, privacidad, customización e integración, y el flujo completo **STT → LLM → TTS** en cuatro stacks.
-- Datos crudos, audios de prueba con hash SHA-256 y scripts para regenerar tablas y gráficos sin volver a gastar créditos.
-- `Python` · `Ollama` · `faster-whisper` · `Piper` · `pandas` · `pytest`
-
-#### 🇨🇷 [mcp-hacienda-cr: servidor MCP de Hacienda para facturación electrónica](https://github.com/jmnzcn/mcp-hacienda-cr)
-Conecta a Claude, Cursor y otros asistentes con las APIs públicas del Ministerio de Hacienda: tipo de cambio, situación tributaria de contribuyentes (moroso u omiso), códigos **CABYS con su IVA** y exoneraciones. Por ejemplo, le puedes preguntar *"¿qué CABYS e IVA lleva el café tostado?"* o *"¿esta empresa está al día con Hacienda?"*.
-- 25 tests unitarios, tests de contrato contra la API real y CI en Node 18/20/22 con una corrida semanal en vivo.
-- `TypeScript` · `MCP SDK` · `Zod` · `Vitest` · `GitHub Actions`
-
-#### 🧪 [FlightBooking QA Copilot: microservicios + servidor MCP](https://github.com/jmnzcn/flightbooking-qa-copilot-mcp)
-Sistema de reservas de vuelos con **3 microservicios Flask** (vuelos, reservas, usuario) documentados con Swagger/OpenAPI, y una suite de **pruebas automatizadas de API** que incluye casos generados con un enfoque **RAG** (ChromaDB).
-- Un **servidor MCP** que funciona como "QA Copilot": revisa la salud de los servicios, invoca endpoints, ejecuta suites de `pytest` y lee código y documentación del repo.
-- CI en **GitHub Actions** con reportes JUnit y recolección de métricas de pruebas.
-- `Python` · `Flask` · `FastMCP` · `ChromaDB` · `pytest` · `Docker` · `GitHub Actions`
-
-#### 🤖 [Efecto de la visibilidad de un agente virtual en la confianza del usuario](https://github.com/jmnzcn/virtual-agent-trust-study)
-Experimento de investigación en **Unity** con tres condiciones: sin asistencia, chat con **Gemini**, y avatar 3D con voz **Azure TTS** y sincronía labial. Registra el desempeño y la confianza de cada participante (escala 1–7) para analizar cómo la presencia del agente cambia la confianza del usuario.
-- Demos en video: [sin asistencia](https://youtu.be/upMpOpCAWgQ) · [solo chat](https://youtu.be/U_A_y0d-Hxg) · [avatar y voz](https://youtu.be/_h3h9BOnI18)
-- `Unity` · `C#` · `Gemini API` · `Azure Speech` · `Python` (análisis)
-
-#### ✅ [Avanxa: app full-stack de hábitos](https://github.com/jmnzcn/avanxa) · [🚀 demo en vivo](https://avanxa.onrender.com)
-App para registrar hábitos diarios, semanales o mensuales, con rachas, estadísticas y un panel de administración. La llevé de prototipo a app integrada: corregí el contrato roto entre frontend y backend, conecté el panel a datos reales y cerré un hueco de seguridad que encontraron los tests.
-- **70 tests** (API con Supertest, servicios del frontend y end-to-end con Playwright) y CI en GitHub Actions; desplegada en Render como un solo servicio con PostgreSQL.
-- `TypeScript` · `React` · `Express` · `Prisma` · `PostgreSQL` · `Playwright` · `GitHub Actions`
-
-### Stack
-
-**IA y LLMs:** OpenAI · Anthropic · Gemini · Ollama · RAG · MCP · STT/TTS  
-**Backend:** Python · Flask · Node.js · Express · Prisma · PostgreSQL  
-**Datos y BI:** SQL · Power BI · DAX · pandas · Kafka Streams  
-**Frontend:** React · Vite · TypeScript · Tailwind CSS  
-**Calidad y DevOps:** pytest · GitHub Actions · Docker  
-**Otros:** Unity · C#
-
-### Me interesa
-
-Agentes de IA en producción, evaluación y observabilidad de LLMs, automatización de pruebas con IA y productos de datos. Abierto a oportunidades y proyectos freelance: [escribime](mailto:neyfred@gmail.com).
+### 🇨🇷 [mcp-hacienda-cr](https://github.com/jmnzcn/mcp-hacienda-cr) · [![npm](https://img.shields.io/npm/v/mcp-hacienda-cr?label=npm)](https://www.npmjs.com/package/mcp-hacienda-cr)
+Connects Claude, Cursor and other assistants to Costa Rica's Ministry of Finance: exchange rates,
+taxpayer status, product codes with their VAT, tax exemptions, and a validator for e-invoice XML
+(official 4.4 schema, line and total math, live checks against the ministry's data).<br>
+`TypeScript` · `MCP` · `XML Schema` · `Vitest`
 
 ---
 
-## 🇺🇸 English
+| Area | Project | Proof |
+|---|---|---|
+| **AI agents & evaluation** | [ReconBench](https://github.com/jmnzcn/reconbench) | Benchmark of 261 finance cases with known answers, including planted false facts and prompt injections |
+| | [dispute-agent](https://github.com/jmnzcn/dispute-agent) | Claude agent with deterministic guardrails: 100% exact decisions (Opus), 0 false disputes, 20/20 injections resisted |
+| | [voice-agent-benchmark](https://github.com/jmnzcn/voice-agent-benchmark) | 15 cloud speech and LLM services vs. fully local ones: latency, accuracy, cost, privacy |
+| **Analytics & BI** | [recovery-bi](https://github.com/jmnzcn/recovery-bi) | Power BI report generated as code (TMDL + PBIR): 17,885 cells checked, 0 mismatches |
+| **Data engineering** | [vendor-recovery-engine](https://github.com/jmnzcn/vendor-recovery-engine) | Reconciliation over 2.7M rows: $895,010 recoverable found, 0 false claims against ground truth |
+| | [deduction-stream](https://github.com/jmnzcn/deduction-stream) | Kafka Streams, exactly-once: 19,283 of 19,283 verdicts identical to batch after a chaos test |
+| **QA & testing** | [flightbooking-qa-copilot-mcp](https://github.com/jmnzcn/flightbooking-qa-copilot-mcp) | Flask microservices, API tests with RAG-generated cases, and an MCP server as a QA copilot |
+| | [avanxa](https://github.com/jmnzcn/avanxa) | Full-stack app with 70 tests (API, frontend, Playwright end to end) · [live demo](https://avanxa.onrender.com) |
+| **Research** | [virtual-agent-trust-study](https://github.com/jmnzcn/virtual-agent-trust-study) | Unity experiment: how chat vs. a 3D avatar with voice changes user trust |
 
-I build and evaluate **AI conversational agents**: from choosing the right speech or LLM model based on latency, cost and privacy, to testing that the whole system works and measuring how people perceive it.
+Five of these form one system for recovering money Amazon deducts from vendors: the [engine](https://github.com/jmnzcn/vendor-recovery-engine), its [real-time version](https://github.com/jmnzcn/deduction-stream), an [agent](https://github.com/jmnzcn/dispute-agent) that disputes the claims, a [benchmark](https://github.com/jmnzcn/reconbench) for such agents, and the [report](https://github.com/jmnzcn/recovery-bi) finance reads.
 
-### Featured projects
+**Stack:** Python · TypeScript · Java · C# · SQL · DuckDB · dbt · Power BI / DAX · Kafka · PostgreSQL ·
+Claude · Gemini · MCP · pytest · Playwright · GitHub Actions · Docker
 
-#### 📦 [Vendor Recovery Engine: Amazon deduction reconciliation](https://github.com/jmnzcn/vendor-recovery-engine) · [📊 interactive results](https://jmnzcn.github.io/vendor-recovery-engine/)
-Reconciles Amazon Vendor Central deductions (shortages, price claims, chargebacks) and payments against a vendor's records: decides what can be disputed, with which evidence and which file row proves it, and builds a work queue by deadline and expected value. On **2.7M rows** from 170 vendors (a synthetic world built on real UCI and ECB data) it found **$895,010 recoverable** with **zero false claims** against ground truth.
-- Robustness curve against what *really* happened: precision holds at 100 % as evidence goes missing. A dispute-letter pipeline with **Claude** and a deterministic verifier that requires every amount, ID and date to come from the evidence (caught 975 of 975 injected errors).
-- `Python` · `pandas` · `pandera` · `pytest` · `hypothesis` · `Claude API` · `GitHub Actions`
+Open to roles and projects in applied AI, LLM evaluation, analytics engineering and QA:
+[get in touch](mailto:neyfred@gmail.com).
 
-#### ⚡ [Deduction Stream: the same reconciliation, in real time on Kafka](https://github.com/jmnzcn/deduction-stream)
-The streaming version of the engine above, on **Kafka 4.1 + Kafka Streams** (exactly-once v2, 3 brokers, Avro contracts in Schema Registry). It judges each deduction as soon as its evidence arrives and corrects itself when late evidence changes a verdict. In a chaos test on **464,512 events** (half out of order), killing a broker and then the app with its state wiped, it produced **19,283 of 19,283 verdicts identical** to the batch engine, with zero duplicates.
-- 8 ADRs (Kafka Streams vs Flink vs Spark, business time vs Kafka time, corrections on a compacted topic), C4 diagrams, a runbook, an executive brief and Terraform for Confluent Cloud with least-privilege RBAC.
-- `Java 21` · `Kafka Streams` · `Avro` · `Schema Registry` · `Docker` · `Terraform` · `GitHub Actions`
+<details>
+<summary><b>Coursework and smaller projects</b></summary>
+<br>
 
-#### 🕵️ [Dispute Agent: an AI agent that investigates and disputes deductions](https://github.com/jmnzcn/dispute-agent) · [📊 interactive evals](https://jmnzcn.github.io/dispute-agent/)
-A **Claude** agent that works each deduction like an analyst: read-only tools (also served as an **MCP server**) to find the invoice behind a messy reference, check shipments and proofs of delivery, and draft the dispute letter. Deterministic guardrails decide what gets filed. Measured against known answers: **100 % exact decisions with Opus 5.5 and 99.1 % with Haiku 5.5** (at $0.0009 per case), **zero false disputes**, and 20 of 20 prompt-injection attempts resisted.
-- Evals with ground truth, an injection suite, every trace browsable, and a documented fix: the first eval caught an ambiguity in the procedure (67 % → 99.1 %).
-- `Python` · `Claude API` · `MCP` · `tool use` · `evals` · `guardrails` · `GitHub Actions`
+- [asesor-agilidad-escala](https://github.com/jmnzcn/asesor-agilidad-escala): an agent that recommends a scaled agile framework (Nexus, LeSS, SAFe, Disciplined Agile) with an auditable multi-criteria matrix. Graduate course, UCR.
+- [pf3311_lab](https://github.com/jmnzcn/pf3311_lab), [pf3312_lab](https://github.com/jmnzcn/pf3312_lab), [laboratorio](https://github.com/jmnzcn/laboratorio): graduate course labs.
 
-#### 📈 [Recovery BI: a Power BI report generated as code](https://github.com/jmnzcn/recovery-bi)
-The report finance would read, written entirely from Python: the semantic model in **TMDL** and the pages and visuals in **PBIR** (the .pbip project format), over the engine's 111,224 decisions. Every **DAX** measure has an independent pandas implementation and is compared cell by cell on **Power BI Desktop's** own engine: **17,885 cells, zero mismatches**. The first run caught a real bug (a rate showing blank instead of 0 %).
-- CI validates every file against Microsoft's published schemas and the model with its Tabular Object Model; the build is deterministic, so every change to the report is reviewed as a diff.
-- `Power BI` · `DAX` · `TMDL` · `PBIR` · `Python` · `.NET (TOM, ADOMD)` · `GitHub Actions`
+</details>
 
-#### 🎙️ [Speech services benchmark for conversational agents](https://github.com/jmnzcn/voice-agent-benchmark) · [📊 interactive results](https://jmnzcn.github.io/voice-agent-benchmark/)
-Benchmarked **15 STT, LLM and TTS services** (OpenAI, Anthropic, Gemini, Groq, Deepgram, Azure, AssemblyAI, ElevenLabs, Google) against **fully local** alternatives (Ollama, faster-whisper, Piper). Measured latency, accuracy (WER, MOS), cost, privacy, customization and integration effort, plus the full **STT → LLM → TTS** pipeline across four stacks.
-- Raw data, SHA-256-verified test audio and scripts to rebuild every table and chart without spending API credits.
-- `Python` · `Ollama` · `faster-whisper` · `Piper` · `pandas` · `pytest`
+<details>
+<summary><b>🇨🇷 En español</b></summary>
+<br>
 
-#### 🇨🇷 [mcp-hacienda-cr: Costa Rica Ministry of Finance MCP server for e-invoicing](https://github.com/jmnzcn/mcp-hacienda-cr)
-Connects Claude, Cursor and other assistants to Costa Rica's Ministry of Finance public APIs: exchange rates, taxpayer status, **CABYS product codes with their VAT rate**, and tax exemptions.
-- 25 unit tests, live contract tests against the real API, and CI on Node 18/20/22 with a weekly live run.
-- `TypeScript` · `MCP SDK` · `Zod` · `Vitest` · `GitHub Actions`
+Construyo agentes de IA y sistemas de datos, y compruebo que den la respuesta correcta: cada proyecto
+de esta página se prueba contra respuestas conocidas.
 
-#### 🧪 [FlightBooking QA Copilot: microservices + MCP server](https://github.com/jmnzcn/flightbooking-qa-copilot-mcp)
-Flight booking system with **3 Flask microservices** (flights, bookings, user facade) documented with Swagger/OpenAPI, plus an **automated API test suite** that includes **RAG-generated** test cases (ChromaDB).
-- An **MCP server** acting as a "QA Copilot": checks service health, calls endpoints, runs `pytest` suites and reads code and docs from the repo.
-- **GitHub Actions** CI with JUnit reports and test metrics collection.
-- `Python` · `Flask` · `FastMCP` · `ChromaDB` · `pytest` · `Docker` · `GitHub Actions`
+- **MetricBench:** los agentes de IA aciertan 23–47% de preguntas de negocio con SQL directo, 92–100%
+  con un glosario de métricas y 98–100% con una capa semántica (dbt + MetricFlow).
+- **dax-parity** (PyPI): prueba cada medida DAX de Power BI contra una implementación independiente,
+  celda por celda.
+- **mcp-hacienda-cr** (npm): conecta asistentes de IA con las APIs de Hacienda y valida facturas
+  electrónicas 4.4 antes de enviarlas.
 
-#### 🤖 [How virtual agent visibility affects user trust](https://github.com/jmnzcn/virtual-agent-trust-study)
-A **Unity** research experiment with three conditions: no assistance, **Gemini** chat, and a 3D avatar with **Azure TTS** voice and lip sync. It logs each participant's performance and trust (1–7 scale) to study how the agent's presence changes user trust.
-- Video demos: [no assistance](https://youtu.be/upMpOpCAWgQ) · [chat only](https://youtu.be/U_A_y0d-Hxg) · [avatar + voice](https://youtu.be/_h3h9BOnI18)
-- `Unity` · `C#` · `Gemini API` · `Azure Speech` · `Python` (analysis)
+Abierto a roles y proyectos en IA aplicada, evaluación de LLMs, analytics engineering y QA:
+[escribime](mailto:neyfred@gmail.com).
 
-#### ✅ [Avanxa: full-stack habit tracker](https://github.com/jmnzcn/avanxa) · [🚀 live demo](https://avanxa.onrender.com)
-Track daily, weekly or monthly habits with streaks, stats and an admin panel. I took it from prototype to integrated app: fixed the broken frontend/backend contract, wired the dashboard to real data, and closed a security gap the tests uncovered.
-- **70 tests** (Supertest API tests, frontend service tests and Playwright end-to-end) with GitHub Actions CI; deployed on Render as a single service with PostgreSQL.
-- `TypeScript` · `React` · `Express` · `Prisma` · `PostgreSQL` · `Playwright` · `GitHub Actions`
-
-### Stack
-
-**AI & LLMs:** OpenAI · Anthropic · Gemini · Ollama · RAG · MCP · STT/TTS  
-**Backend:** Python · Flask · Node.js · Express · Prisma · PostgreSQL  
-**Data & BI:** SQL · Power BI · DAX · pandas · Kafka Streams  
-**Frontend:** React · Vite · TypeScript · Tailwind CSS  
-**Quality & DevOps:** pytest · GitHub Actions · Docker  
-**Other:** Unity · C#
-
-### Interests
-
-Production AI agents, LLM evaluation and observability, AI-assisted test automation and data products. Open to roles and freelance projects: [get in touch](mailto:neyfred@gmail.com).
+</details>
