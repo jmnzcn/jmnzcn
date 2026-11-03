@@ -62,7 +62,8 @@ Open to roles and projects in applied AI, LLM evaluation, analytics engineering 
 <br>
 
 - [asesor-agilidad-escala](https://github.com/jmnzcn/asesor-agilidad-escala): an agent that recommends a scaled agile framework (Nexus, LeSS, SAFe, Disciplined Agile) with an auditable multi-criteria matrix. Graduate course, UCR.
-- [pf3311_lab](https://github.com/jmnzcn/pf3311_lab), [pf3312_lab](https://github.com/jmnzcn/pf3312_lab), [laboratorio](https://github.com/jmnzcn/laboratorio): graduate course labs.
+- [pf3312_lab](https://github.com/jmnzcn/pf3312_lab): three 3D virtual agents in Unity with facial expressions and lip-sync, the start of the trust study above.
+- [coursework](https://github.com/jmnzcn/coursework): other course projects in one repository, with their history (a Gemini voice chat CLI, the flight microservices that became the QA copilot).
 
 </details>
 
