@@ -47,8 +47,7 @@ taxpayer status, product codes with their VAT, tax exemptions, and a validator f
 
 | Area | Project | Proof |
 |---|---|---|
-| **AI agents & evaluation** | [ReconBench](https://github.com/jmnzcn/reconbench) | Benchmark of 261 finance cases with known answers, including planted false facts and prompt injections |
-| | [dispute-agent](https://github.com/jmnzcn/dispute-agent) | Claude agent whose decisions are re-checked by code before anything is filed. On 106 synthetic cases it matched the right invoice in 8 of 8 references the rules engine could only call ambiguous, and defining the statuses in its instructions took Haiku from 67% to 99.1%. 20/20 prompt injections resisted |
+| **AI agents & evaluation** | [ReconBench](https://github.com/jmnzcn/reconbench) and [dispute-agent](https://github.com/jmnzcn/dispute-agent) | A benchmark of 261 synthetic finance cases and a Claude agent whose decisions are re-checked by code. Four models ignored all 32 instructions planted in documents, but accepted planted false facts (Haiku 16 of 32, Opus 1). Filing only what a rule check confirms sends 10% of cases to a person with Opus and 27% with Haiku. On references the rules could only call ambiguous, the agent matched the right invoice in 8 of 8 |
 | | [voice-agent-benchmark](https://github.com/jmnzcn/voice-agent-benchmark) | 15 cloud speech and LLM services vs. fully local ones: latency, accuracy, cost, privacy |
 | **Analytics & BI** | [recovery-bi](https://github.com/jmnzcn/recovery-bi) | Power BI report generated as code (TMDL + PBIR): 17,885 cells checked, 0 mismatches |
 | **Data engineering** | [vendor-recovery-engine](https://github.com/jmnzcn/vendor-recovery-engine) | Reconciliation over 2.7M synthetic rows: $895,010 recoverable found, 0 false claims against the known answers |
