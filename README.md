@@ -16,8 +16,9 @@ against known answers.
 
 **Experience.** IT Systems Business Analyst at GSK since 2022, with 9+ years in pharmaceutical and
 healthcare IT (GSK, Baxter) in FDA-regulated environments. Day to day: supporting the main commercial
-system, Oracle SQL and Power BI reporting, and the full testing cycle for upgrades, including a cloud
-migration. Before that, QA automation with Playwright and Selenium (Crux Consultores) and BI with
+system, Oracle SQL and Power BI reporting, automating manual daily processes, building data pipelines
+that clean data and produce consolidated reports, and the full testing cycle for upgrades, including
+a cloud migration. Before that, QA automation with Playwright and Selenium (Crux Consultores) and BI with
 OLAP cubes (Avantica, now Encora). The projects below are what I build outside that work.
 
 ---
@@ -87,8 +88,9 @@ Los cinco proyectos de recuperación de deducciones usan datos sintéticos.
 
 **Experiencia.** Analista de sistemas de negocio en GSK desde 2022, con más de 9 años en TI de la
 industria farmacéutica y de salud (GSK, Baxter) en entornos regulados por la FDA: soporte del sistema
-comercial principal, reportes en Oracle SQL y Power BI, y el ciclo completo de pruebas de
-actualizaciones, incluida una migración a la nube. Antes, automatización de pruebas con Playwright y
+comercial principal, reportes en Oracle SQL y Power BI, automatización de procesos manuales diarios,
+pipelines de datos que limpian la información y generan consolidados, y el ciclo completo de pruebas
+de actualizaciones, incluida una migración a la nube. Antes, automatización de pruebas con Playwright y
 Selenium (Crux Consultores) e inteligencia de negocios con cubos OLAP (Avantica, hoy Encora).
 
 - **MetricBench:** los agentes de IA aciertan 12–40% de las preguntas respondibles con SQL directo, 91–100%
