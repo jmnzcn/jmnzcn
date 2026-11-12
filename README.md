@@ -40,16 +40,18 @@ taxpayer status, product codes with their VAT, tax exemptions, and a validator f
 | Area | Project | Proof |
 |---|---|---|
 | **AI agents & evaluation** | [ReconBench](https://github.com/jmnzcn/reconbench) | Benchmark of 261 finance cases with known answers, including planted false facts and prompt injections |
-| | [dispute-agent](https://github.com/jmnzcn/dispute-agent) | Claude agent with deterministic guardrails: 100% exact decisions (Opus), 0 false disputes, 20/20 injections resisted |
+| | [dispute-agent](https://github.com/jmnzcn/dispute-agent) | Claude agent whose decisions are re-checked by code before anything is filed. On 106 synthetic cases it matched the right invoice in 8 of 8 references the rules engine could only call ambiguous, and defining the statuses in its instructions took Haiku from 67% to 99.1%. 20/20 prompt injections resisted |
 | | [voice-agent-benchmark](https://github.com/jmnzcn/voice-agent-benchmark) | 15 cloud speech and LLM services vs. fully local ones: latency, accuracy, cost, privacy |
 | **Analytics & BI** | [recovery-bi](https://github.com/jmnzcn/recovery-bi) | Power BI report generated as code (TMDL + PBIR): 17,885 cells checked, 0 mismatches |
-| **Data engineering** | [vendor-recovery-engine](https://github.com/jmnzcn/vendor-recovery-engine) | Reconciliation over 2.7M rows: $895,010 recoverable found, 0 false claims against ground truth |
+| **Data engineering** | [vendor-recovery-engine](https://github.com/jmnzcn/vendor-recovery-engine) | Reconciliation over 2.7M synthetic rows: $895,010 recoverable found, 0 false claims against the known answers |
 | | [deduction-stream](https://github.com/jmnzcn/deduction-stream) | Kafka Streams, exactly-once: 19,283 of 19,283 verdicts identical to batch after a chaos test |
 | **QA & testing** | [flightbooking-qa-copilot-mcp](https://github.com/jmnzcn/flightbooking-qa-copilot-mcp) | Flask microservices, API tests with RAG-generated cases, and an MCP server as a QA copilot |
 | | [avanxa](https://github.com/jmnzcn/avanxa) | Full-stack app with 70 tests (API, frontend, Playwright end to end) · [live demo](https://avanxa.onrender.com) |
 | **Research** | [virtual-agent-trust-study](https://github.com/jmnzcn/virtual-agent-trust-study) | Unity experiment: how chat vs. a 3D avatar with voice changes user trust |
 
-Five of these form one system for recovering money Amazon deducts from vendors: the [engine](https://github.com/jmnzcn/vendor-recovery-engine), its [real-time version](https://github.com/jmnzcn/deduction-stream), an [agent](https://github.com/jmnzcn/dispute-agent) that disputes the claims, a [benchmark](https://github.com/jmnzcn/reconbench) for such agents, and the [report](https://github.com/jmnzcn/recovery-bi) finance reads.
+Five of these form one system for recovering money Amazon deducts from vendors: the [engine](https://github.com/jmnzcn/vendor-recovery-engine), its [real-time version](https://github.com/jmnzcn/deduction-stream), an [agent](https://github.com/jmnzcn/dispute-agent) that disputes the claims, a [benchmark](https://github.com/jmnzcn/reconbench) for such agents, and the [report](https://github.com/jmnzcn/recovery-bi) finance reads. All five run on synthetic data: the engine generates a world of 170 vendors, which is how the right answer for every deduction is known. Real exports will bring cases this world doesn't have.
+
+I work with Claude Code, and the commits say so. My part is what a model can't grade for itself: the questions, the known answers and the checks each project has to pass.
 
 **Stack:** Python · TypeScript · Java · C# · SQL · DuckDB · dbt · Power BI / DAX · Kafka · PostgreSQL ·
 Claude · Gemini · MCP · pytest · Playwright · GitHub Actions · Docker
@@ -72,7 +74,9 @@ Open to roles and projects in applied AI, LLM evaluation, analytics engineering 
 <br>
 
 Construyo agentes de IA y sistemas de datos, y compruebo que den la respuesta correcta: cada proyecto
-de esta página se prueba contra respuestas conocidas.
+de esta página se prueba contra respuestas conocidas. Trabajo con Claude Code y los commits lo indican;
+lo mío son las preguntas, las respuestas conocidas y las comprobaciones que cada proyecto debe pasar.
+Los cinco proyectos de recuperación de deducciones usan datos sintéticos.
 
 - **MetricBench:** los agentes de IA aciertan 23–47% de preguntas de negocio con SQL directo, 92–100%
   con un glosario de métricas y 98–100% con una capa semántica (dbt + MetricFlow).
