@@ -18,7 +18,8 @@ against known answers.
 
 ### 🔬 [MetricBench](https://github.com/jmnzcn/metricbench) · [results](https://jmnzcn.github.io/metricbench/)
 Can AI agents answer business questions about real data correctly? On raw SQL, four models got
-**23–47%** right. With a one-page metric glossary, **92–100%**. Through a dbt + MetricFlow semantic
+**12–40%** of the answerable questions right, and three out of four misses were one unwritten
+convention: which orders count. With a one-page metric glossary, **91–100%**. Through a dbt + MetricFlow semantic
 layer, **98–100%** of what it covers, and "I can't answer that" for the rest, never a made-up number.
 78 questions with known answers, 100k real orders.<br>
 `dbt` · `MetricFlow` · `DuckDB` · `Claude` · `Gemini`
@@ -78,7 +79,7 @@ de esta página se prueba contra respuestas conocidas. Trabajo con Claude Code y
 lo mío son las preguntas, las respuestas conocidas y las comprobaciones que cada proyecto debe pasar.
 Los cinco proyectos de recuperación de deducciones usan datos sintéticos.
 
-- **MetricBench:** los agentes de IA aciertan 23–47% de preguntas de negocio con SQL directo, 92–100%
+- **MetricBench:** los agentes de IA aciertan 12–40% de las preguntas respondibles con SQL directo, 91–100%
   con un glosario de métricas y 98–100% con una capa semántica (dbt + MetricFlow).
 - **dax-parity** (PyPI): prueba cada medida DAX de Power BI contra una implementación independiente,
   celda por celda.
