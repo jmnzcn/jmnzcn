@@ -14,6 +14,12 @@ against known answers.
 
 </div>
 
+**Experience.** IT Systems Business Analyst at GSK since 2022, with 9+ years in pharmaceutical and
+healthcare IT (GSK, Baxter) in FDA-regulated environments. Day to day: supporting the main commercial
+system, Oracle SQL and Power BI reporting, and the full testing cycle for upgrades, including a cloud
+migration. Before that, QA automation with Playwright and Selenium (Crux Consultores) and BI with
+OLAP cubes (Avantica, now Encora). The projects below are what I build outside that work.
+
 ---
 
 ### 🔬 [MetricBench](https://github.com/jmnzcn/metricbench) · [results](https://jmnzcn.github.io/metricbench/)
@@ -78,6 +84,12 @@ Construyo agentes de IA y sistemas de datos, y compruebo que den la respuesta co
 de esta página se prueba contra respuestas conocidas. Trabajo con Claude Code y los commits lo indican;
 lo mío son las preguntas, las respuestas conocidas y las comprobaciones que cada proyecto debe pasar.
 Los cinco proyectos de recuperación de deducciones usan datos sintéticos.
+
+**Experiencia.** Analista de sistemas de negocio en GSK desde 2022, con más de 9 años en TI de la
+industria farmacéutica y de salud (GSK, Baxter) en entornos regulados por la FDA: soporte del sistema
+comercial principal, reportes en Oracle SQL y Power BI, y el ciclo completo de pruebas de
+actualizaciones, incluida una migración a la nube. Antes, automatización de pruebas con Playwright y
+Selenium (Crux Consultores) e inteligencia de negocios con cubos OLAP (Avantica, hoy Encora).
 
 - **MetricBench:** los agentes de IA aciertan 12–40% de las preguntas respondibles con SQL directo, 91–100%
   con un glosario de métricas y 98–100% con una capa semántica (dbt + MetricFlow).
